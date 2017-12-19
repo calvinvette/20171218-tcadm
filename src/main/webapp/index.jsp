@@ -1,3 +1,4 @@
+<%@page import="java.util.*"%>
 <html>
 <body>
 <h2>Hello World!</h2>
@@ -5,6 +6,20 @@
 
 <br/>
 <a href="UserForm.html">User Form</a>
+
+
+<table>
+<%
+ int numCusts = 10;
+ for (int i = 0; i < numCusts; i++) {
+	%>
+	<tr><td><%=(i + 1)%> </td><td> Customer Number: <%=i%> </td></tr>
+	<%
+ }
+%>
+</table>
+
+rendered @: <%=new Date()%>
 
 </body>
 </html>
