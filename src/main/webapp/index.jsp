@@ -6,6 +6,8 @@
 
 <br/>
 <a href="UserForm.html">User Form</a>
+<br/>
+<a href="CustomerRegistrationForm.html">Customer Registration Form</a>
 
 
 <table>
