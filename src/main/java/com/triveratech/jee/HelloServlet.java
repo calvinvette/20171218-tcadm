@@ -23,10 +23,15 @@ public class HelloServlet extends HttpServlet {
 	}
 
 
-	/*
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-	*/
+ 		String userName = request.getParameter("userName");
+ 		String userPass = request.getParameter("userPass");
+ 		PrintWriter out = response.getWriter();
+		System.out.println("User '" + userName + "' logged in with a password of '" + userPass );
+ 		response.setContentType("text/html");
+ 		out.println("<h1>Hello, " + userName + "</h1>");
+ 		out.flush();
+ 		out.close();
+ 	}
 
 }
