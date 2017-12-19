@@ -5,5 +5,5 @@ create table Customer (
    phoneNumber VARCHAR(25),
    homeAddress BIGINT,
    workAddress BIGINT,
-   email VARCHAR(255),
+   email VARCHAR(255)
 )  ENGINE=InnoDB ;
