@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="jee-demo" transaction-type="RESOURCE_LOCAL">
+		<non-jta-data-source>java:comp/env/jdbc/weasleyds</non-jta-data-source>
 		<properties>
+<!--
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<persistence-unit name="jee-demo" transaction-type="RESOURCE_LOCAL">
+  Migrated to META-INF/context.xml
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tcdemo?createDatabaseIfNotExist=true"/>
 			<property name="javax.persistence.jdbc.user" value="student"/>
 			<property name="javax.persistence.jdbc.password" value="p@$$w0rd"/>
 			<property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+-->
+
+
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 			<property name="hibernate.connection.autocommit" value="true"/>
 			<property name="hibernate.hbm2ddl.auto" value="create"/>

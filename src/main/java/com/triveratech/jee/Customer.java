@@ -18,7 +18,7 @@ import javax.persistence.NamedQueries;
   @NamedQuery(name=Customer.FIND_ALL_QUERY, query = "select c from Customer c"),
   @NamedQuery(name=Customer.FIND_BY_LASTNAME_QUERY, query = "select c from Customer c where c.lastName = :lastName")
 })
-public class Customer {
+public class Customer implements java.io.Serializable {
 	public final static String FIND_ALL_QUERY = "Customer.FIND_ALL_QUERY";
 	public final static String FIND_BY_LASTNAME_QUERY = "Customer.FIND_BY_LASTNAME_QUERY";
 
