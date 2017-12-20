@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.NamedQueries;
 
 // POJO =~ JavaBean
 // JavaBean implements java.io.Serializable
@@ -12,7 +14,14 @@ import javax.persistence.Id;
 // JAXB for conversion to/from XML and JSON
 //@XmlRootElement
 //@Xml
+@NamedQueries({
+  @NamedQuery(name=Customer.FIND_ALL_QUERY, query = "select c from Customer c"),
+  @NamedQuery(name=Customer.FIND_BY_LASTNAME_QUERY, query = "select c from Customer c where c.lastName = :lastName")
+})
 public class Customer {
+	public final static String FIND_ALL_QUERY = "Customer.FIND_ALL_QUERY";
+	public final static String FIND_BY_LASTNAME_QUERY = "Customer.FIND_BY_LASTNAME_QUERY";
+
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long customerId = -1L; // -1 is never assigned by DB
 	private String firstName;

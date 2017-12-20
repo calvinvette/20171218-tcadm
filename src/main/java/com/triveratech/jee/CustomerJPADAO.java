@@ -79,7 +79,7 @@ public class CustomerJPADAO implements CustomerDAO {
 	 */
 	@Override
 	public List<Customer> findAll() {
-		return getEntityManager().createQuery("select c from Customer c", Customer.class) // Asking
+		return getEntityManager().createNamedQuery(Customer.FIND_ALL_QUERY, Customer.class) // Asking
 												// for
 												// SQL-Injection
 				.getResultList();
@@ -91,7 +91,7 @@ public class CustomerJPADAO implements CustomerDAO {
 	@Override
 	public List<Customer> findByLastName(String lastName) {
 		return getEntityManager()
-				.createQuery("select c from Customer c where c.lastName like :lastName", Customer.class) // Asking
+				.createNamedQuery(Customer.FIND_BY_LASTNAME_QUERY, Customer.class) // Asking
 															// for
 															// SQL-Injection
 				.setParameter("lastName", lastName).getResultList();

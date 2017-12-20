@@ -8,6 +8,7 @@
 <a href="UserForm.html">User Form</a>
 <br/>
 <a href="CustomerRegistrationForm.html">Customer Registration Form</a>
+<a href="CustomerFindAllServlet">Customer List </a>
 
 
 <table>
