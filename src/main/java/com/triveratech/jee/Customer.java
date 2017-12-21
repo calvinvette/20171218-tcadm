@@ -6,18 +6,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.NamedQueries;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
-// POJO =~ JavaBean
-// JavaBean implements java.io.Serializable
 @Entity
-// JSR303 Bean Validation
+// JSR303 Bean Validation - TBA
 // JAXB for conversion to/from XML and JSON
-//@XmlRootElement
-//@Xml
+@XmlType
+@XmlRootElement
+
+// JPA Queries (used in CustomerJPADAO.java, can be overriden in META-INF/orm.xml)
 @NamedQueries({
   @NamedQuery(name=Customer.FIND_ALL_QUERY, query = "select c from Customer c"),
   @NamedQuery(name=Customer.FIND_BY_LASTNAME_QUERY, query = "select c from Customer c where c.lastName = :lastName")
 })
+// POJO =~ JavaBean
+// JavaBean implements java.io.Serializable
 public class Customer implements java.io.Serializable {
 	public final static String FIND_ALL_QUERY = "Customer.FIND_ALL_QUERY";
 	public final static String FIND_BY_LASTNAME_QUERY = "Customer.FIND_BY_LASTNAME_QUERY";
