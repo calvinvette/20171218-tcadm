@@ -32,5 +32,58 @@
   <res-auth>Container</res-auth>
 </resource-ref>
 
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>secure_rest</web-resource-name>
+			<url-pattern>/rest/*</url-pattern>
+			<url-pattern>/secure/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>user</role-name>
+			<role-name>inventory_specialist</role-name>
+			<role-name>inventory_manager</role-name>
+			<role-name>customer_service_representative</role-name>
+			<role-name>customer_service_manager</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<!-- declare all roles used in the app; 
+			should be a complete collection used in all auth-constraints, 
+			either from XML or annotations -->
+		<role-name>user</role-name>
+		<role-name>inventory_specialist</role-name>
+		<role-name>inventory_manager</role-name>
+		<role-name>customer_service_representative</role-name>
+		<role-name>customer_service_manager</role-name>
+	</security-role>
+	<login-config>
+<!--
+		<auth-method>BASIC</auth-method>
+		<auth-method>DIGEST</auth-method>
+		<auth-method>CLIENT-CERT</auth-method>
+-->
+		<auth-method>FORM</auth-method>
+		<!-- If we use FORM as an auth-method, we'll need a form that POSTs to j_security_check
+		-->
+		<form-login-config>
+			<form-login-page>/login.jsp</form-login-page>
+			<form-error-page>/login_failure.jsp</form-error-page>
+		</form-login-config>
+<!-- Sample Form:
+	<form method=post action="j_security_check">
+		<p>
+			<span>Username:</span> <br /> <input type="text" name="j_username">
+		</p>
+		<p>
+			<span>Password:</span> <br /> <input type="password"
+				name="j_password">
+		</p>
+		<p>
+			<input type="submit" value="Login">
+		</p>
+	</form>
+-->
+	</login-config>
+
 
 </web-app>

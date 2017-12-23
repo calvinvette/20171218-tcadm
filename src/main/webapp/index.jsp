@@ -7,9 +7,9 @@
 <br/>
 <a href="UserForm.html">User Form</a>
 <br/>
-<a href="CustomerRegistrationForm.html">Customer Registration Form</a>
-<a href="CustomerFindAllServlet">Customer List </a>
-
+<a href="CustomerRegistrationForm.html">Customer Registration Form</a><br/>
+<a href="CustomerFindAllServlet">Customer List </a><br/>
+<a href="secure/loggedInWelcome.jsp">Secured Page (should trigger a form-based login)</a><br/>
 
 <table>
 <%
